@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceGroupName": {
+      "value": "testdeployRG04"
+    },
+    "location": {
+      "value": "Japan East"
+    },
+
+    "functionappplan_name": {
+      "value": "premiumfunctionappplan11"
+    },
+    "functionappplan_sku": {
+      "value": {
+        "capacity": 1,
+        "family": "B",
+        "name": "B1",
+        "size": "B1",
+        "tier": "Basic"
+      }
+    },
+    "serveros": {
+      "value": "Windows"
+    },
+    "zoneredundant": {
+      "value": false
+    },
+    "functionapp_name": {
+      "value": "testfunctionappdeploy011"
+    },
+    "functionapp_kind": {
+      "value": "functionapp"
+    },
+    "applicationinsightsname": {
+      "value": "functionappinsights011"
+    },
+    "applicationtype": {
+      "value": "other"
+    },
+    "storageaccountname": {
+      "value": "functionappstaccnt011"
+    },
+    "storageaccount_type": {
+      "value": "StorageV2"
+    },
+    "storageaccount_skuname": {
+      "value": "Standard_LRS"
+    },
+    "managedidentityname": {
+      "value": "functionapp011mgid"
+    },
+    "sqlservername": {
+      "value": "trusteclipsesqlserver011"
+    },
+    "administratorLogin": {
+      "value": "testlogin02"
+    },
+    "adminpassword": {
+      "value": "Eclipse@125z"
+    },
+    "customrolename": {
+      "value": "testrole04"
+    }
+  }
+}

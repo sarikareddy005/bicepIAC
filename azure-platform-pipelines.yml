@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: $(SELF-HOSTED)
+
+steps:
+- checkout: self
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script:
+
+      set -xe
+
+      az login --identity --username $(MANAGED_IDENTITY)
+
+      az account set --subscription "$(SUBSCRIPTION)"
+
+
+      az deployment sub create
+        --name "testdeployment"
+        --parameters env="dev"
+        --parameters uai="1032107"
+        --template-file bicepIAC/resourcesdeployment.bicep
+        --parameters /Parameters/resourcesdeployment.parameters.all.json
+        --location eastus2
+        --subscription "Free Trial"
+
+      az account clear
+
